@@ -1,0 +1,83 @@
+/*
+------------------------------------------------------------------
+    Search user
+------------------------------------------------------------------
+*/
+.search__user {
+    width: 100%;
+    padding-top: 50px;
+
+    h1 {
+        margin-bottom: 15px;
+    }
+    
+    .mat-form-field {
+        width: 100% !important;
+    }
+ 
+}
+
+/*
+------------------------------------------------------------------
+    Card
+------------------------------------------------------------------
+*/
+
+.card {
+    .mat-card-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .mat-card-header {
+        margin-bottom: 20px;
+    }
+
+    .mat-card-actions {
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+::ng-deep .mat-card-header-text {
+    display: flex  !important;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+------------------------------------------------------------------
+    Search repository
+------------------------------------------------------------------
+*/
+.search__user {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    h1 {
+        margin-bottom: 15px;
+    }
+    
+    .mat-form-field {
+        width: 100% !important;
+    }
+ 
+}
+
+.search__repo {
+    width: 100%;
+
+    .mat-form-field {
+        width: 100% !important;
+    }
+}

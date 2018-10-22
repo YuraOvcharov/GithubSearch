@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="search__user">
+        <h1>Search github user</h1>
+        <mat-form-field>
+          <input 
+              matInput 
+              placeholder="Please, enter a username"
+              [(ngModel)]="searchUser"
+              [minlength]="minLenght"
+              (ngModelChange) = "handleChangeUser()"
+          >
+          <mat-error>
+            Min lenght is {{ minLenght }}. Now it is {{ this.searchUser.length }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="search__user">
+        <mat-form-field>
+          <input 
+          matInput 
+          placeholder="Please"
+          [(ngModel)]="searchRepo"
+          [minlength]="minLenght"
+          (ngModelChange) = "handleChangeRepo()"
+          >
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-card class="card" *ngIf="isLoadedRepo">
+  <div>
+      {{ repo.name }}
+  </div>
+ 
+</mat-card> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 offset-lg-3">
+      <mat-card class="card" *ngIf="isLoadedUser">
+        <mat-card-header>
+          <img 
+            mat-card-avatar 
+            [src]="user.avatar_url" 
+            alt="user.name"
+          >
+          <mat-card-title>{{ user.name }}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="search__repo">
+            <mat-form-field>
+              <input 
+              matInput 
+              placeholder="Find a repository..."
+              [(ngModel)]="searchRepo"
+              [minlength]="minLenght"
+              (ngModelChange) = "handleChangeRepo()"
+              >
+            </mat-form-field>
+          </div>
+      
+          <div>
+
+          </div>
+          <div *ngIf="isLoadedRepo">
+              {{ repo.name }}
+          </div>
+             
+           
+            
+        </mat-card-content>
+        <mat-card-actions>
+          <a 
+            target="_blank " 
+            mat-raised-button 
+            color="warn" 
+            [href] = "user.html_url"
+          >
+            View Profile
+          </a>
+        </mat-card-actions>
+      </mat-card>
+
+      <div *ngIf= "noExisting()">
+        {{this.titleUSER}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
