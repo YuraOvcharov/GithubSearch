@@ -1,31 +1,10 @@
-import { Component} from '@angular/core';
+import { Component,EventEmitter, Input, Output } from '@angular/core';
 import { UsersServices } from '../users.service';
-//import {MatTableDataSource} from '@angular/material';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent{
 
@@ -37,9 +16,9 @@ export class SearchComponent{
   user: any;
   repo: any;
 
-  titleUSER = ''; // изменить это
+  infoAboutUser = '';
 
-  constructor(private service: UsersServices) { }
+  constructor(private service: UsersServices) {}
 
   handleChangeUser() {
     if (this.minLenght <= this.searchUser.length)  {
@@ -57,25 +36,33 @@ export class SearchComponent{
     }
   }
 
-  noExisting() {
-    if ((this.minLenght >= this.searchUser.length) && (this.isLoadedUser == false)) {
-
-      this.titleUSER = 'ПУСТО';
-      return true;
-    } else if ((this.minLenght <= this.searchUser.length) && (this.isLoadedUser == false)) {
-      this.titleUSER = 'No exist this rep';
-      return true;
-    }
-  }
-
   handleChangeRepo() {
     if (this.minLenght <= this.searchRepo.length) {
-      this.service.getRepos(this.searchRepo)
+      this.service.getRepos(this.searchUser, this.searchRepo)
         .subscribe(repo => {
           this.repo = repo;
-          this.isLoadedRepo = true;
+          if (this.repo.name == null) {
+            this.isLoadedRepo = false;  
+          } else {
+            this.isLoadedRepo = true;  
+          }
         })
+    } else {
+      this.isLoadedRepo = false;  
     }
   }
+
+  noExistingUser() {
+    if ((this.minLenght >= this.searchUser.length) && (this.isLoadedUser == false)) {
+
+      this.infoAboutUser = '';
+      return true;
+    } else if ((this.minLenght <= this.searchUser.length) && (this.isLoadedUser == false)) {
+      this.infoAboutUser = "There isn't user with this name";
+      return true;
+    }
+  }
+
+
 
 }

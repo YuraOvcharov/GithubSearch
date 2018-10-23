@@ -34,6 +34,20 @@
         margin-bottom: 20px;
     }
 
+    .mat-card-content {
+
+        margin-bottom: 30px;
+
+        .mat-button {
+            font-size: 22px;
+            padding: 15px;
+        }
+
+        p {
+            font-size: 21px;
+        }
+    }
+
     .mat-card-actions {
         text-align: center;
 
@@ -80,4 +94,9 @@
     .mat-form-field {
         width: 100% !important;
     }
+}
+
+.existing-user {
+    text-align: center;
+    color: red;
 }

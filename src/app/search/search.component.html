@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -20,35 +21,11 @@
   </div>
 </div>
  
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="search__user">
-        <mat-form-field>
-          <input 
-          matInput 
-          placeholder="Please"
-          [(ngModel)]="searchRepo"
-          [minlength]="minLenght"
-          (ngModelChange) = "handleChangeRepo()"
-          >
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-</div>
-
-<mat-card class="card" *ngIf="isLoadedRepo">
-  <div>
-      {{ repo.name }}
-  </div>
- 
-</mat-card> -->
-
-
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-6 offset-lg-3">
+
+      <!-- card -->
       <mat-card class="card" *ngIf="isLoadedUser">
         <mat-card-header>
           <img 
@@ -71,12 +48,18 @@
               >
             </mat-form-field>
           </div>
-      
-          <div>
 
-          </div>
           <div *ngIf="isLoadedRepo">
-              {{ repo.name }}
+              <span>View all information about: </span>
+              <a routerLink = "/commits" mat-button color="primary">
+                {{ repo.name }}
+              </a>
+          </div>
+
+          <div *ngIf="!isLoadedRepo">
+              <p>
+                Please, enter the full repository name
+              </p>
           </div>
              
            
@@ -93,13 +76,18 @@
           </a>
         </mat-card-actions>
       </mat-card>
+      <!-- end card -->
 
-      <div *ngIf= "noExisting()">
-        {{this.titleUSER}}
+      <div class="existing-user" *ngIf= "noExistingUser()">
+        {{this.infoAboutUser}}
       </div>
+
     </div>
   </div>
 </div>
+
+
+
 
 
   
