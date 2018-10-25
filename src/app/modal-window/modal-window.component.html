@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>All information about this commits</h1>
+<mat-dialog-content class="mat-typography">
+        <div class="row">
+            <div class="col-2">SHA:</div>
+            <div class="col-10">{{ data.sha }}</div>
+        </div>
+        <div class="row">
+            <div class="col-2">Name</div>
+            <div class="col-10">{{ data.commit.author.name }}</div>
+        </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+</mat-dialog-actions>

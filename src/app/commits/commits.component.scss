@@ -7,3 +7,10 @@
 .mat-table {
     width: 100%;
 }
+
+.mat-row {
+    &:hover {
+        cursor: pointer;
+        background: rgba(0,0,0,0.4);
+    }
+}

@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -17,10 +18,11 @@ import { HttpModule } from '@angular/http';
 import { UsersServices } from './users.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommitsComponent } from './commits/commits.component';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
 
 const appRoutes: Routes = [
   { path: '', component: SearchComponent },
-  { path: 'commits', component: CommitsComponent },
+  { path: 'commits', component: CommitsComponent},
 ];
 
 
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     ToolbarComponent,
     SearchComponent,
-    CommitsComponent
+    CommitsComponent,
+    ModalWindowComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,10 +45,14 @@ const appRoutes: Routes = [
     MatInputModule,
     MatCardModule,
     MatTableModule,
+    MatDialogModule,
     MatButtonModule,
     FormsModule,
     HttpModule,
     NgbModule.forRoot()
+  ],
+  entryComponents: [
+    ModalWindowComponent,
   ],
   providers: [UsersServices],
   bootstrap: [AppComponent]

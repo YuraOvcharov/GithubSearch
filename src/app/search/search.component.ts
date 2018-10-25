@@ -7,7 +7,8 @@ import { UsersServices } from '../users.service';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent{
-
+///////////////////////////////////
+////////////////////////////////////////////
   searchUser = '';
   searchRepo = '';
   minLenght = 3;
