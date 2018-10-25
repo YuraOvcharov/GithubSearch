@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
+    MatPaginatorModule,
     FormsModule,
     HttpModule,
     NgbModule.forRoot()
