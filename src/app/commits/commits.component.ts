@@ -14,7 +14,7 @@ export class CommitsComponent implements OnInit {
   constructor(private service: UsersServices,
     public dialog: MatDialog) {}
 
-  searchUser = this.service.searchUser
+  searchUser = this.service.searchUser;
   searchRepo = this.service.searchRepo;
   commits: any;
   rowInfo: any;
